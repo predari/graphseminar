@@ -1,0 +1,129 @@
+%%
+%% This is file `beamerouterthemeHUB.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `outer,gridouter')
+%% 
+%% This is a generated file.
+%% 
+%% 
+%% Copyright (C) 2010 by Klaus Braune <klaus.braune@kit.edu>,
+%% Steinbuch Centre for Computing (SCC) at Karlsruhe Institute of Technology (KIT)
+%% 
+%% Sep 2018:
+%% Adapted by Henning Meyerhenke, Institute of Computer Science at HU Berlin
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{rcs}
+\RCS $Date: 2010/07/07 14:35:17 $
+\RCS $Revision: 1.0 $
+\ProvidesPackage{beamerouterthemeHUB}
+    [\RCSRawDate\space v\RCSRevision\space Outer part of the beamer theme HUB]
+
+\mode<presentation>
+\setbeamertemplate{navigation symbols}{}
+\newif\ifHUB@ins@warn
+\HUB@ins@warntrue
+\setbeamertemplate{frametitle}{\vspace*{\HUB@FHeadHt}}
+\newlength{\HUB@FHeadHt}
+\newlength{\HUB@FHeadDp}
+\newlength{\HUB@FStdTitHt}
+\settoheight{\HUB@FStdTitHt}{{\HUB@fnt@framtitl Q}}
+\AtBeginDocument{
+  \addtobeamertemplate{background}{}{%
+    \global\HUB@FHeadHt=0\K@mm
+
+    \begin{tikzpicture}
+      \useasboundingbox (-4.415748mm, 0.000mm) rectangle (123.584252mm,96.000mm);
+      % "Trauerrand"
+      % \HUB@MFrame[\HUB@MFbadd]
+      % HU logo in top right corner of normal slides
+      \pgftext[at=\pgfpoint{243\K@mm}{184.5\K@mm},right,top]
+        {\pgfimage[interpolate=true,width=25\K@mm]{\HUB@logo}}
+      % MACSy logo in bottom right corner of normal slides
+      \pgftext[at=\pgfpoint{243\K@mm}{1.5\K@mm},right,base]
+        {\pgfimage[interpolate=true,width=25\K@mm]{\MACSY@logo}}
+      \pgftext[at=\pgfpoint{11\K@mm}{172.5\K@mm},left,base]
+        {\parbox[t]{194\K@mm}{\raggedright%
+           \HUB@fnt@framtitl\insertframetitle\rule{0pt}{0pt}\\[4\K@pt]
+           \HUB@fnt@framsubtit\insertframesubtitle}}
+      % frame number in bottom left corner
+      \pgftext[at=\pgfpoint{6.25\K@mm}{7.4\K@mm},left,base]
+        {{\color{HUBblue}\HUB@fnt@page\vphantom{0}\insertframenumber}}
+      \ifHUB@usefoot
+        \ifx\HUB@foot\relax
+          \pgftext[at=\pgfpoint{17\K@mm}{8.35\K@mm},left,base]
+            {\HUB@fnt@foot\vphantom{0}\HUB@date}
+          \pgftext[at=\pgfpoint{37\K@mm}{8.35\K@mm},left,base]
+            {\HUB@fnt@foot\vphantom{0}%
+             \parbox[t]{130\K@mm}{%
+               \mbox{\insertshortauthor}: \insertshorttitle}}
+          \pgftext[at=\pgfpoint{243\K@mm}{8.35\K@mm},right,base]
+            {\HUB@fnt@foot\vphantom{0}%
+             \parbox[t]{80\K@mm}{%
+               \ifx\beamer@shortinstitute\relax\insertinstitute
+               \else\insertshortinstitute\fi}}
+        \else
+          \pgftext[at=\pgfpoint{17\K@mm}{8.35\K@mm},left,base]
+            {\HUB@fnt@foot\vphantom{0}\HUB@foot}
+        \fi
+      \fi
+      \ifx\HUB@nav@syms\relax \relax
+      \else
+        \pgftext[at=\pgfpoint{251\K@mm}{15\K@mm},bottom,right]
+          {\color{HUBblack50}%
+           \setbeamercolor*{navigation symbols}{fg=HUBblack50}%
+           \setbeamercolor*{navigation symbols dimmed}{fg=HUBblack30}%
+           \expandafter\HUB@ins@nav\HUB@nav@syms
+          }
+      \fi
+    \end{tikzpicture}%
+
+    }
+  \def\HUB@ins@nav#1{%
+    \if#1!\let\@next=\relax\else
+    \if#1s\hbox{\insertslidenavigationsymbol}%
+          \let\@next=\HUB@ins@nav\else
+    \if#1f\hbox{\insertframenavigationsymbol}%
+          \let\@next=\HUB@ins@nav\else
+    \if#1H\hbox{\insertsectionnavigationsymbol}%
+          \let\@next=\HUB@ins@nav\else
+    \if#1h\hbox{\insertsubsectionnavigationsymbol}%
+          \let\@next=\HUB@ins@nav\else
+    \if#1d\hbox{\insertdocnavigationsymbol}%
+          \let\@next=\HUB@ins@nav\else
+    \if#1b\hbox{\insertbackfindforwardnavigationsymbol}%
+          \let\@next=\HUB@ins@nav\else
+          \ifHUB@ins@warn
+            \PackageWarning{beamerHUB}{Invalid navigation symbol key `#1' has been ignored}%
+            \message{To avoid the warning use only the keys^^J
+              \@spaces `s' to insert the slide navigation symbol^^J
+              \@spaces `f' to insert the frame navigation symbol^^J
+              \@spaces `H' to insert the section navigation symbol^^J
+              \@spaces `h' to insert the subsection navigation symbol^^J
+              \@spaces `d' to insert the doc navigation symbol and^^J
+              \@spaces `b' to insert the backward - find - forward symbols.^^J}%
+            \global\HUB@ins@warnfalse
+          \fi
+          \let\@next=\HUB@ins@nav
+    \fi\fi\fi\fi\fi\fi\fi
+    \@next
+  }
+}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamerouterthemeHUB.sty'.

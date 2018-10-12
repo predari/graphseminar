@@ -1,0 +1,202 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% allgmeine Kommandos %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xspace}
+
+\newcommand{\dah}{d.\,h.\,\xspace}
+
+% directory for figures
+\newcommand{\figDir}{../fig}
+
+% text spacing
+\newcommand{\abs}{\vspace*{1em}}
+\newcommand{\gq}[1]{"`#1"'}
+
+% variables
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cns}{\mbox{$\chi_{\raisebox{-.6ex}{\scriptsize \SP}}$}}
+
+% sets of numbers 
+% jetzt mit amssymb-package (s.u.)
+\newcommand{\N}{\mbox{$\mathbb{N}$}}
+\newcommand{\Nnull}{\mbox{$\mathbb{N}_0$}}
+\newcommand{\Z}{\mbox{$\mathbb{Z}$}}
+\newcommand{\Q}{\mbox{$\mathbb{Q}$}}
+\newcommand{\R}{\mbox{$\mathbb{R}$}}
+\newcommand{\C}{\mbox{$\mathbb{C}$}}
+\newcommand{\game}{\mbox{$\cal G$}}
+\newcommand{\oneVec}{\mbox{$1\hskip-0.4em1$}}
+
+% sets of languages
+\newcommand{\DP}{\mbox{$\cal P$}}
+\newcommand{\NP}{\mbox{$\cal NP$}}
+\newcommand{\CNP}{\mbox{co-$\cal NP$}}
+\newcommand{\NPC}{\mbox{$\cal NPC$}}
+\newcommand{\PSPACE}{{\cal PSPACE}}
+\newcommand{\W}{\mbox{$\cal W$}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\Alg}{\mathcal{A}}
+
+% languages
+\newcommand{\LP}{\mbox{$\cal L$}}
+\newcommand{\DLP}{\mbox{$\cal D$}}
+\newcommand{\SP}{\mbox{$\cal S$}}
+\newcommand{\ZP}{\mbox{$P_{\SP}$}}
+\newcommand{\SPP}{\mbox{$\cal SP$}}
+\newcommand{\LR}{\mbox{${\cal LR}$}}
+
+\newcommand{\SC}{\mbox{$\cal C$}}
+\newcommand{\SB}{\mbox{$\cal B$}}
+\newcommand{\SN}{\mbox{$\cal N$}}
+
+\newcommand{\DE}{\mbox{$\cal E$}}
+
+
+% operators 
+\newcommand{\xor}{\oplus}
+\newcommand{\ovl}[1]{\overline{#1}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\djplus}{\cup^{\hskip-0.52em\cdot}~}
+\newcommand{\prefix}{\mbox{$\sqsubset$}}
+\newcommand{\suffix}{\mbox{$\sqsupset$}}
+\newcommand{\contra}[1]
+           {\mbox{\includegraphics[scale=0.75]{\figDir/contra.pdf}} #1}
+
+\newcommand{\intdeg}{\operatorname{intdeg}}
+\newcommand{\extdeg}{\operatorname{extdeg}}
+\newcommand{\degree}{\operatorname{deg}}
+\newcommand{\gain}{\operatorname{gain}}
+\newcommand{\maxdeg}{\operatorname{maxdeg}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\ecc}{\operatorname{ecc}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Vor}{\operatorname{Vor}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\core}{\operatorname{Core}}
+\newcommand{\cn}{\operatorname{coreness}}
+\newcommand{\expect}{\mathbb{E}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\disjcup}{\mathop{\dot{\cup}}}
+\newcommand{\Ext}{\mbox{Ext}}
+\newcommand{\ext}{\mbox{ext}}
+\newcommand{\dirG}{\overleftrightarrow{G}}
+\newcommand{\rplus}{\mathbb{R}_+}
+
+% other
+\newcommand{\stf}{$s$-$t$-Fluss}
+\newcommand{\stpf}{$s$-$t$-Präfluss\ }
+\newcommand{\SimAn}[0]{\blink{Simulated Annealing}}
+\newcommand{\blink}[1]{\textnormal{\texttt{#1}}}
+
+
+\DeclareMathOperator*{\cut}{cut}
+
+\renewenvironment<>{MYblock}[2][]
+{\begin{KITcolblock}<#1>{#2}{KITgreen50}{KITgreen15}}
+{\end{KITcolblock}}
+
+
+
+% relations
+\newcommand{\hateq}{\mbox{$\hat{=}$}}
+%\newcommand{\path}[2]{
+%  \leadsto \hskip-0.5em{}^{\hskip-0.7em #1}_{#2 \hskip0.2em}
+%} % eof path
+\newcommand{\ls}[1]{\ovl{#1}}
+\newcommand{\dls}[1]{\ovl{#1} \hskip-0.25em \vec{} \hskip0.3em}
+
+% subscripts
+\newcommand{\subscript}[2]{
+           \mbox{\scriptsize $\begin{array}{c} #1 \\ #2 \end{array}$}
+} % eof subscript
+
+% easier TeXing
+\newcommand{\grm}{gr\"o\ss tm\"oglich}
+
+% for grammars
+\newcommand{\modifiesto}[2]{\mapsto^{#1}_{#2}}
+
+% for students
+\newcommand{\checkYourself}{\orange{(prüfen!)}}
+
+% environments 
+%\newtheorem{note}[theorem]{Note}
+\newtheorem{remark}[theorem]{Bemerkung}
+\newtheorem{observation}[theorem]{Beobachtung}
+\newtheorem{proposition}[theorem]{Proposition}
+\deftranslation[to=german]{Corollary}{Folgerung}
+\deftranslation[to=german]{corollary}{Folgerung}
+
+%\newcommand{\lemma}[1]{
+%  \refstepcounter{counter} \label{#1}
+%  \textbf{\blue{Lemma \ref{#1}}:}
+%} % eof lemma
+%\newcommand{\theorem}[1]{
+%  \refstepcounter{counter} \label{#1}
+%  \textbf{\blue{Satz \ref{#1}}:}
+%} % eof theorem
+%\renewcommand{\corollary}[1]{
+%  \refstepcounter{counter} \label{#1}
+%  \textbf{\blue{Folgerung \ref{#1}}:}
+%} % eof corollary
+%\newcommand{\observation}[1]{
+%  \refstepcounter{counter} \label{#1}
+%  \textbf{\blue{Beobachtung \ref{#1}}:}
+%} % eof observation
+%\newcommand{\example}[1]{
+%  \refstepcounter{counter} \label{#1}
+%  \textbf{\blue{Beispiel \ref{#1}}:}
+%} % eof example
+%\newcommand{\algorithm}[1]{
+%  \refstepcounter{counter} \label{#1}
+%  \textbf{\blue{Algorithmus \ref{#1}}:}
+%} % eof algorithm
+%
+%\newenvironment{problem}[4]{
+%  {\bf Problem {\sc #2}:} \vspace*{-0.5em}
+%  \begin{quote}
+%    {\bf geg:} \begin{minipage}[t]{#1} #3 \end{minipage} \\[0.2em]
+%    {\bf ges:} \begin{minipage}[t]{#1} #4 \end{minipage}
+%  \end{quote}
+%} % eof problem
+%
+%\newenvironment{dproblem}[4]{
+%  {\bf Problem {\sc #2}:} \vspace*{-0.5em}
+%  \begin{quote}
+%    {\bf geg:}  \begin{minipage}[t]{#1} #3 \end{minipage} \\[0.2em]
+%    {\bf Frage:} \begin{minipage}[t]{#1} #4 \end{minipage}
+%  \end{quote}
+%} % eof dproblem
+%
+%\newcommand{\headline}[1]{\textbf{\blue{#1}}}
+
+% fuer Algorithmen im tabbing 
+\newcommand{\scale}{~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\=~~~~\\} % scaling
+\newcommand{\cmt}[1]{\` /* \red{#1} */} % Kommentare rechtsbuendig
+\newcommand{\CMT}[1]{/* \red{#1} */}    % Kommentare linksbuendig
+\newcommand{\kw}[1]{\mbox{\textbf{#1}}} % keyword
+
+% für Header-Folien
+\newcommand{\header}[1]{
+\foilhead[-2em]{Kombinatorische Optimierung}
+
+\begin{center}
+{\large \textbf{Henning Meyerhenke}}
+\end{center}
+
+\setcounter{page}{1}
+\centerline{\small \red{Vorlesung vom #1}}
+
+}
+
+% animations
+\RequirePackage{ifthen}
+\newcommand{\animation}[1]{\ifthenelse{\ANIMATION = 1}{#1}{}}
+\newcommand{\animPage}{\clearpage \addtocounter{page}{-1}}
+
+% proofSketch
+\RequirePackage{ifthen}
+\newcommand{\proofSketch}[1]{\ifthenelse{\PROOFSKETCH = 1}{#1}{}}

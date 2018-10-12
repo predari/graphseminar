@@ -1,0 +1,166 @@
+%%
+%% This is file `beamerthemeHUB.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `base,grid')
+%% 
+%% This is a generated file.
+%% 
+%% 
+%% Copyright (C) 2010 by Klaus Braune <klaus.braune@kit.edu>,
+%% Steinbuch Centre for Computing (SCC) at Karlsruhe Institute of Technology (KIT)
+%%
+%% Sep 2018:
+%% Adapted by Henning Meyerhenke, Institute of Computer Science at HU Berlin
+%% 
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{rcs}
+\RCS $Date: 2010/07/07 14:35:17 $
+\RCS $Revision: 1.0 $
+\ProvidesPackage{beamerthemeHUB}
+    [\RCSRawDate\space v\RCSRevision\space Base part of the beamer theme HUB]
+\RequirePackage{mathpazo}
+%\RequirePackage{uarial}
+\RequirePackage{helvet}
+\let\HUB@fam=\sfdefault
+\RequirePackage{tikz}
+\newif\ifHUB@grid
+\HUB@gridfalse
+\mode<presentation>
+\RequirePackage{HUBcolors}
+\RequirePackage{HUBdefs}
+\newlength{\K@mm}
+\setlength{\K@mm}{0.003937007874015748031\paperwidth}
+\newlength{\K@pt}
+\setlength{\K@pt}{0.3514598035145980351\K@mm}
+\addtolength{\oddsidemargin}{-2.4mm}
+\addtolength{\oddsidemargin}{-4\K@mm}
+\setlength{\textwidth}{232.0\K@mm}
+\setlength{\headsep}{23\K@mm}
+\setlength{\HUB@titimgwd}{248\K@mm}
+\let\titleimagewd=\HUB@titimgwd
+\newlength{\titleimageht}\setlength{\titleimageht}{74\K@mm}
+\setlength{\HUB@Framewd}{3\K@mm}
+\setlength{\HUB@RFramewd}{.5\K@mm}
+\setlength{\HUB@Linewd}{.5\K@pt}
+\setlength{\HUB@MFllx}{0\K@mm}
+\setlength{\HUB@MFlly}{0\K@mm}
+\setlength{\HUB@MFurx}{254\K@mm}
+\setlength{\HUB@MFury}{190.5\K@mm}
+\newcommand{\HUB@MFodd}{10\K@mm}
+\newcommand{\HUB@MFHdh}{0\K@mm}
+\newcommand{\HUB@MFbadd}{12\K@mm}
+\setlength{\leftmargini}{13.93329pt}
+\setlength{\leftmarginii}{16.06725pt}
+\setlength{\leftmarginiii}{16.06725pt}
+\setlength{\leftmarginiv}{6.40mm}
+\setlength{\leftmarginv}{6.40mm}
+\setlength{\leftmarginvi}{0.00mm}
+\newlength{\labelsep@itemi}
+\setlength{\labelsep@itemi}{6.89763pt}
+\newlength{\labelsep@itemii}
+\setlength{\labelsep@itemii}{5.475pt}
+\newlength{\labelsep@itemiii}
+\setlength{\labelsep@itemiii}{3.76784pt}
+\newlength{\labelsep@itemiv}
+\setlength{\labelsep@itemiv}{4.33688pt}
+\let\labelsep@itemv=\labelsep@itemiv
+\let\labelsep@itemvi=\labelsep@itemv
+\newlength{\labelsep@enumi}
+\setlength{\labelsep@enumi}{\labelsep@itemi}
+\addtolength{\labelsep@enumi}{-2\K@mm}
+\newlength{\labelsep@enumii}
+\setlength{\labelsep@enumii}{\labelsep@itemii}
+\addtolength{\labelsep@enumii}{-1.7\K@mm}
+\newlength{\labelsep@enumiii}
+\setlength{\labelsep@enumiii}{\labelsep@itemiii}
+\addtolength{\labelsep@enumiii}{-1.4\K@mm}
+\newlength{\labelsep@enumiv}
+\setlength{\labelsep@enumiv}{\labelsep@itemiv}
+\addtolength{\labelsep@enumiv}{-1.25\K@mm}
+\let\labelsep@enumv=\labelsep@itemv
+\let\labelsep@enumvi=\labelsep@itemvi
+\newlength{\item@indenti}
+\setlength{\item@indenti}{0pt}
+\let\item@indentii=\item@indenti
+\let\item@indentiii=\item@indenti
+\let\item@indentiv=\item@indenti
+\let\item@indentv=\item@indenti
+\newlength{\item@indentvi}
+\setlength{\item@indentvi}{-\labelsep@itemiv}
+\let\enum@indenti=\item@indenti
+\let\enum@indentii=\item@indentii
+\let\enum@indentiii=\item@indentiii
+\let\enum@indentiv=\item@indentiv
+\let\enum@indentv=\item@indentv
+\let\enum@indentvi=\item@indentvi
+\newcommand{\heading}[1]{%
+  \vspace{4.9\K@pt}\par{\HUB@fnt@hdr#1}
+}
+\DeclareOption{deutsch}{\AtEndOfPackage{\German}%
+  \def\HUB@babelopts{english,ngerman}}
+\DeclareOption{german}{\AtEndOfPackage{\German}%
+  \def\HUB@babelopts{english,ngerman}}
+\DeclareOption{ngerman}{\AtEndOfPackage{\German}%
+  \def\HUB@babelopts{english,ngerman}}
+\DeclareOption{germanb}{\AtEndOfPackage{\German}%
+  \def\HUB@babelopts{english,ngerman}}
+\DeclareOption{englisch}{\AtEndOfPackage{\English}%
+  \def\HUB@babelopts{ngerman,english}}
+\DeclareOption{english}{\AtEndOfPackage{\English}%
+  \def\HUB@babelopts{ngerman,english}}
+\DeclareOption{UKenglish}{\AtEndOfPackage{\English}%
+  \def\HUB@babelopts{ngerman,english}}
+\DeclareOption{USenglish}{\AtEndOfPackage{\English}%
+  \def\HUB@babelopts{ngerman,english}}
+\def\HUB@babelopts{english,ngerman}
+\DeclareOption{16pt}{\input{HUB16.clo}}
+\DeclareOption{18pt}{\input{HUB18.clo}}
+\DeclareOption{20pt}{\input{HUB20.clo}}
+\DeclareOption{22pt}{\input{HUB22.clo}}
+\DeclareOption{24pt}{\input{HUB24.clo}}
+\newif\ifHUB@usefoot\HUB@usefootfalse
+\DeclareOption{usefoot}{\HUB@usefoottrue}
+\newif\ifHUB@titlepage@z\HUB@titlepage@zfalse
+\DeclareOption{titlepage0}{\HUB@titlepage@ztrue}
+\ExecuteOptions{20pt}
+\ProcessOptions
+\PassOptionsToPackage{\HUB@babelopts}{babel}
+\gdef\English{%
+  \HUB@English
+  \gdef\HUB@logo{\HUB@logo@clrE}
+}
+
+\gdef\German{%
+  \HUB@German
+  \gdef\HUB@logo{\HUB@logo@clrD}
+}
+\let\Deutsch=\German
+\newcommand{\HUBfoot}[1]{\HUB@usefoottrue\gdef\HUB@foot{#1}}
+\let\HUB@foot=\relax
+\newcommand{\usenavigationsymbols}[1][fHb]{\xdef\HUB@nav@syms{#1!}}
+\let\HUB@nav@syms=\relax
+\usefonttheme{HUB}
+\usecolortheme{HUB}
+\useinnertheme{HUB}
+\useoutertheme{HUB}
+\DateNumbers
+\AtBeginDocument{\normalsize\raggedbottom}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamerthemeHUB.sty'.

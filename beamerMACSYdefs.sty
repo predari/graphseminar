@@ -1,0 +1,218 @@
+% Copyright 2010 by Dennis Schieferdecker <dennis.schieferdecker@kit.edu>
+%% Sep 2018:
+%% Adapted by Henning Meyerhenke, Institute of Computer Science at HU Berlin
+
+
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{beamerMACSYdefs}
+\mode<presentation>
+
+
+\usepackage{ifthen} % provides \ifthenelse test  
+\usepackage{xifthen} % provides \isempty test
+
+
+% options for beamerMACSYdefs
+\newif\ifHUB@blockborder\HUB@blockbordertrue															% draw block borders
+\newif\ifHUB@colbullets\HUB@colbulletsfalse																% color list bullets
+\DeclareOption{colbullets}{\HUB@colbulletstrue}
+\DeclareOption{noborder}{\HUB@blockborderfalse}
+\DeclareOption{english}{\AtEndOfPackage{\MACSY@english}}													% MACSY Sanders language specific text
+\DeclareOption{german}{\AtEndOfPackage{\MACSY@german}}
+\ProcessOptions
+
+
+% redefined font sizes
+\renewcommand{\HUB@fnt@titl}{\fontsize{32\K@pt}{36\K@pt}\bfseries}
+\renewcommand{\HUB@fnt@subtit}{\fontsize{18\K@pt}{20\K@pt}\mdseries\selectfont}
+\renewcommand{\HUB@fnt@inst}{\fontsize{14\K@pt}{16\K@pt}\selectfont}
+\renewcommand{\HUB@fnt@page}{\fontsize{14\K@pt}{16\K@pt}\bfseries}
+\renewcommand{\HUB@fnt@framtitl}{ \color{HUBblue} \fontsize{30\K@pt}{36\K@pt}\bfseries}
+\renewcommand{\HUB@fnt@framsubtit}{ \color{HUBblue} \fontsize{18\K@pt}{22\K@pt}\bfseries}
+
+
+% MACSy logo
+\gdef\MACSY@logo{logo-macsy}
+
+
+% redesigned list marker 
+\colorlet{HUBbullet}{HUBblue}																			% color for list marker
+\renewcommand{\HUB@marksymbol}[1][HUBbullet]{															% redefined marker
+  \tikz \filldraw[#1] (0cm,7cm)
+    -- (0cm,2cm) arc(180:270:2cm) -- (7cm,0cm)
+    -- (7cm,5cm) arc(  0: 90:2cm) -- cycle;
+}
+
+
+% redesigned footer
+\newcommand{\HUB@institute}{empty institute}															% variable to hold institute
+\newcommand{\HUBinstitute}[1]{\renewcommand\HUB@institute{#1}}
+\newcommand{\HUB@faculty}{empty faculty}																% variable to hold faculty
+\newcommand{\HUBfaculty}[1]{\renewcommand\HUB@faculty{#1}}
+
+\HUBfoot{										
+  %% redesigned footer (HM)
+  \color{HUBblue}
+  %% line above text
+  \pgfline{\pgfpoint{0cm}{0.35cm}}{\pgfpoint{9.83cm}{0.35cm}}
+  %% author name
+  \pgftext[at=\pgfpoint{0\K@mm}{1\K@mm},left,base]{\HUB@fnt@twelvept\selectfont\bfseries\insertshortauthor, \HUB@fnt@twelvept\selectfont\mdseries\HUB@faculty}
+  %% talk's short title
+  \pgftext[at=\pgfpoint{0\K@mm}{-4\K@mm},left,base]{\HUB@fnt@twelvept\selectfont\insertshorttitle}
+  %% section name
+  \pgftext[at=\pgfpoint{195\K@mm}{1\K@mm},right,base]{\HUB@fnt@twelvept\selectfont\bfseries\insertsection}
+
+  %  \ifx \insertsubsection \@empty
+    %% subsection name
+     {\pgftext[at=\pgfpoint{195\K@mm}{-4\K@mm},right,base]{\HUB@fnt@twelvept\selectfont\mdseries\insertsubsection}}               % if no subsection given
+  %  \else
+   %                      {\pgftext[at=\pgfpoint{232\K@mm}{-4\K@mm},right,base]{\HUB@fnt@twelvept\selectfont\mdseries\insertsubsection}}   % if subsection given
+  % \fi
+}
+
+
+% adjust placement of very long titles
+\newlength{\MACSY@titleheight}
+\newsavebox{\MACSY@box}
+\newcommand{\MACSY@computeheight}{
+  \sbox{\MACSY@box}{\parbox[b]{226\K@mm}{\raggedright\HUB@fnt@titl\inserttitle\\[3\K@mm]\HUB@fnt@subtit\insertsubtitle}}
+  \setlength{\MACSY@titleheight}{26.0857pt}
+  \addtolength{\MACSY@titleheight}{-\ht\MACSY@box}
+  \ifdim\MACSY@titleheight>0pt\setlength{\MACSY@titleheight}{0pt}\fi
+}
+\newcommand{\MACSY@titleoffset}{\vspace*{\MACSY@titleheight}}
+\g@addto@macro\beamer@lastminutepatches{\MACSY@computeheight\expandafter\title\expandafter{\expandafter\MACSY@titleoffset\inserttitle}}
+
+
+% MACSY language specific settings
+\def\MACSY@english{
+\HUBfaculty{Department of Computer Science}\HUBinstitute{}
+}
+\def\MACSY@german{
+\HUBfaculty{Institut f\"ur Informatik}\HUBinstitute{}
+}
+
+
+% additional colors
+\definecolor{HUBred}{RGB}  { 160,  30,  40}
+\definecolor{HUBred70}{RGB}{ 188,  97,  104}
+\definecolor{HUBred50}{RGB}{ 207,  142,  147}
+\definecolor{HUBred30}{RGB}{ 226,  187,  190}
+\definecolor{HUBred15}{RGB}{ 241,  221,  223}
+\definecolor{HUBwhite}{RGB}{ 255, 255, 255}
+
+
+% additional highlighting commands
+\definecolor{HUBbrightred}{RGB}    { 255,   45, 90}
+\definecolor{HUBbrightblue}{RGB}   { 0,    79, 240}
+\definecolor{HUBbrightgreen}{RGB}  { 0,   210, 180}
+
+\setbeamercolor{alerted text}{fg=HUBbrightred}
+\newcommand<>{\galert}[1]{{\color#2{HUBbrightgreen}#1}}
+\newcommand<>{\balert}[1]{{\color#2{HUBbrightblue}#1}}
+\newcommand<>{\ralert}[1]{{\color#2{HUBbrightred}#1}}
+
+\newcommand<>{\calert}[2][alert.fg]{{\color#3{#1}#2}}											% colored alert: \calert<slide>[color]{text}
+\newcommand<>{\citem}[3][]{{\only#4{\colorlet{HUBbullet}{#2}\setbeamercolor{structure}{fg=#2}}	% colored item : \citem<slide>[itemize symbol]{color}{text}
+							\@ifempty{#1}{\item}{\item[#1]}\calert#4[#2]{#3}}}
+
+
+% additional column command for broad columns
+\newenvironment<>{HUBcolumns}{\begin{columns}#1[onlytextwidth]}{\end{columns}}
+
+
+% patches
+\g@addto@macro\beamer@lastminutepatches{\setlength\textheight{7cm}}								% needed for correct vertical alignment, if [t] is not used as parameter
+\newlength{\oldtextwidth}																		% old \textwidth as compatibility reference (\textwidth = 232.0\K@mm)
+\setlength\oldtextwidth{225.0\K@mm}
+
+
+% - colored blocks ---------------------------------------------------------------------------------------------------------------------------------------
+
+% variables for block environments
+\newsavebox{\HUB@bbx}
+\newlength{\HUB@blen}
+\newlength{\HUB@blenA}
+\newlength{\HUB@blockwidth}
+\newlength{\HUB@blockmargin}\setlength{\HUB@blockmargin}{1mm}
+
+% normal block (black)
+\newcommand{\HUB@NormalBox}[3][\relax]{
+  \ifx#1\relax
+  	\HUB@blen=0pt%
+  \else
+  	\HUB@blen=\ht\HUB@bbx%
+  	\HUB@blenA=\dp\HUB@bbx%
+  	\addtolength{\HUB@blen}{\HUB@blenA}%          height of image
+  	\addtolength{\HUB@blen}{2\HUB@blockmargin}%   height of image + distance
+  \fi
+  \HUB@tlen=\ht\HUB@sbx%
+  \HUB@tlenA=\dp\HUB@sbx%
+  \addtolength{\HUB@tlen}{\HUB@tlenA}%            height of image
+  \addtolength{\HUB@tlen}{2\HUB@blockmargin}%     height of image + distance
+  \addtolength{\HUB@tlen}{\HUB@blen}%             height of image + distance + titleblock
+  \HUB@tlenA=\wd\HUB@sbx%                         width of image
+  \addtolength{\HUB@tlenA}{2\HUB@blockmargin}%    width of image + distance
+  \begin{tikzpicture}
+
+     \clip (0pt,\HUB@tlen+2\HUB@Linewd)								% box area
+       -- (0pt,\HUB@Framewd+.5\HUB@Linewd)
+       arc(180:270:\HUB@Framewd+.5\HUB@Linewd)
+       -- (\HUB@tlenA+2\HUB@Linewd,0pt)
+       -- (\HUB@tlenA+2\HUB@Linewd,\HUB@tlen-\HUB@Framewd+1.5\HUB@Linewd)
+       arc(0:90:\HUB@Framewd+.5\HUB@Linewd) -- cycle;
+
+     \fill[#2] (.5\HUB@Linewd,.5\HUB@Linewd)						% main box
+       rectangle (\HUB@tlenA+1.5\HUB@Linewd,\HUB@tlen+1.5\HUB@Linewd);
+
+     \pgftext[at=\pgfpoint{\HUB@blockmargin+\HUB@Linewd}{\HUB@blockmargin+\HUB@Linewd},left,bottom]{\usebox{\HUB@sbx}}	% text area
+
+     \ifHUB@blockborder
+     \draw[#3,line width=\HUB@Linewd]								% border
+       (.5\HUB@Linewd,\HUB@tlen+1.5\HUB@Linewd)
+       -- (.5\HUB@Linewd,\HUB@Framewd+.5\HUB@Linewd)
+       arc(180:270:\HUB@Framewd)
+       -- (\HUB@tlenA+1.5\HUB@Linewd,.5\HUB@Linewd)
+       -- (\HUB@tlenA+1.5\HUB@Linewd,\HUB@tlen-\HUB@Framewd+1.5\HUB@Linewd)
+       arc(0:90:\HUB@Framewd) -- cycle;
+     \fi
+
+	 \ifx#1\relax\relax\else										% title area
+       \fill[#3] (.5\HUB@Linewd,\HUB@tlen+2\HUB@Linewd)
+         rectangle (\HUB@tlenA+1.5\HUB@Linewd,\HUB@tlen-\HUB@blen+2\HUB@Linewd);
+       \pgftext[at=\pgfpoint{\HUB@Linewd}{\HUB@blockmargin+\HUB@tlen-\HUB@blen+2\HUB@Linewd},left,bottom]{ \usebox{\HUB@bbx} }
+     \fi
+  \end{tikzpicture}%
+}
+
+\newenvironment<>{HUBcolblock}[4][]{%
+\ifHUB@colbullets\colorlet{HUBbullet}{#3}\colorlet{enum.bg}{#3}\colorlet{subenum.bg}{#3}\colorlet{subsubenum.bg}{#3}\colorlet{subsubsubenum.bg}{#3}\setbeamercolor{structure}{fg=#3!90!HUBblack}\fi
+\newcommand{\HUB@headcolor}{#3}
+\newcommand{\HUB@bodycolor}{#4}
+\HUB@blockwidth=\textwidth
+\addtolength{\HUB@blockwidth}{-2mm}
+\sbox{\HUB@bbx}{\textcolor{white}{\textbf{#2}}}
+\begin{lrbox}{\HUB@sbx}\setbeamercolor{structure}{bg=\HUB@bodycolor}\begin{minipage}[t]{\HUB@blockwidth}}
+{\end{minipage}\end{lrbox}\ifdim\wd\HUB@bbx=0pt\HUB@NormalBox{\HUB@bodycolor}{\HUB@headcolor}\else\HUB@NormalBox[title]{\HUB@bodycolor}{\HUB@headcolor}\fi
+\ifHUB@colbullets\colorlet{HUBbullet}{HUBblue}\colorlet{enum.bg}{HUBblue}\colorlet{subenum.bg}{HUBblue50}\colorlet{subsubenum.bg}{HUBblue}\colorlet{subsubsubenum.bg}{HUBblue50}\setbeamercolor{structure}{fg=HUBblack50}\fi}
+
+\renewenvironment<>{HUBblock}[2][]
+{\begin{HUBcolblock}<#1>{#2}{HUBblack50}{HUBblack15}}
+{\end{HUBblock}}
+
+\newenvironment<>{HUBalertblock}[2][]
+{\begin{HUBcolblock}<#1>{#2}{HUBred50}{HUBred15}}
+{\end{HUBcolblock}}
+
+\newenvironment<>{HUBexampleblock}[2][]
+{\begin{HUBcolblock}<#1>{#2}{HUBblue50}{HUBblue15}}
+{\end{HUBcolblock}}
+
+\newenvironment<>{HUBinfoblock}[2][]
+{\begin{HUBcolblock}<#1>{#2}{HUBblue50}{HUBblue15}}
+{\end{HUBcolblock}}
+
+% --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\mode<all>
+\endinput

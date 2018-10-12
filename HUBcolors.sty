@@ -1,0 +1,80 @@
+%%
+%% This is file `KITcolors.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITgeneral.dtx  (with options: `colors')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2010 by Klaus Braune <klaus.braune@kit.edu>,
+%% Steinbuch Centre for Computing (SCC) at Karlsruhe Institute of Technology (KIT)
+%%
+%% Adapted in Sep 2018 by Henning Meyerhenke, HU Berlin
+%% 
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{rcs}
+\RCS $Date: 2010/03/31 15:52:05 $
+\RCS $Revision: 1.0 $
+\ProvidesPackage{HUBcolors}
+    [\RCSRawDate\space v\RCSRevision\space HUB specific color definitions]
+
+\RequirePackage{xcolor}
+\definecolor{HUBgreen}  {cmyk}{  1,0,.60,0} % 100% green
+\definecolor{HUBgreen70}{cmyk}{.70,0,.42,0} %  70% green
+\definecolor{HUBgreen50}{cmyk}{.50,0,.30,0} %  50% green
+\definecolor{HUBgreen30}{cmyk}{.30,0,.18,0} %  30% green
+\definecolor{HUBgreen15}{cmyk}{.15,0,.09,0} %  15% green
+\definecolor{HUBblue}  {cmyk}{1.0,.60,0,0.20} % 100% blue
+\definecolor{HUBblue70}{cmyk}{.70,.42,0,0.14} %  70% blue
+\definecolor{HUBblue50}{cmyk}{.50,.30,0,0.10} %  50% blue
+\definecolor{HUBblue30}{cmyk}{.30,.18,0,0.06} %  30% blue
+\definecolor{HUBblue15}{cmyk}{.15,.09,0,0.03} %  15% blue
+\definecolor{HUBblack}  {cmyk}{0,0,0,  1} % 100% black
+\definecolor{HUBblack70}{cmyk}{0,0,0,.70} %  70% black
+\definecolor{HUBblack50}{cmyk}{0,0,0,.50} %  50% black
+\definecolor{HUBblack30}{cmyk}{0,0,0,.30} %  30% black
+\definecolor{HUBblack15}{cmyk}{0,0,0,.15} %  15% black
+\definecolor{HUBblack05}{cmyk}{0,0,0,.05} %  5% black
+\definecolor{HUBolive}{RGB}{130,190,60}
+\definecolor{HUByellow}{RGB}{250,230,20}
+\definecolor{HUBred}{RGB}{160,30,40}
+\definecolor{HUBmagenta}{RGB}{160,0,120}
+\definecolor{HUBseablue}{RGB}{50,80,140}
+\definecolor{HUBcyan}{RGB}{80,170,230}
+\definecolor{HUBorange}{RGB}{220,160,30}
+\definecolor{HUBbrown}{RGB}{160,130,50}
+\colorlet{HUBrframe}{HUBblack50}
+\colorlet{HUBmframe}{HUBblack15}
+\newif\ifHUB@bw\HUB@bwtrue
+\newcommand{\SW}{%
+  \HUB@bwtrue
+  \colorlet{HUBheadbg}{HUBblack50}
+  \ifHUB@De\let\HUB@logo=\HUB@logo@bwD\else\let\HUB@logo=\HUB@logo@bwE\fi
+  \renewcommand{\labelitemi}{\resizebox{1ex}{1ex}{\HUB@marksymbol[HUBblack]}}
+}
+\let\BW=\SW
+\newcommand{\Color}{%
+  \HUB@bwfalse
+  \colorlet{HUBheadbg}{HUBblue}
+  \ifHUB@De\gdef\HUB@logo{\HUB@logo@clrD}
+    \else\gdef\HUB@logo{\HUB@logo@clrE}
+    \fi
+  \let\labelitemi=\HUB@mark
+}
+\let\Farbe=\Color
+\endinput
+%%
+%% End of file `HUBcolors.sty'.

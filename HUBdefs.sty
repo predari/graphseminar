@@ -1,0 +1,241 @@
+%%
+%% This is file `HUBdefs.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITgeneral.dtx  (with options: `definitions')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2010 by Klaus Braune <klaus.braune@kit.edu>,
+%% Steinbuch Centre for Computing (SCC) at Karlsruhe Institute of Technology (KIT)
+%%
+%% Adapted by Henning Meyerhenke for MACSy @ Humboldt-Universität zu Berlin
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{rcs}
+\RCS $Date: 2010/03/31 15:52:05 $
+\RCS $Revision: 1.0 $
+\ProvidesPackage{HUBdefs}
+    [\RCSRawDate\space v\RCSRevision\space Common HUB specific definitions]
+
+\RequirePackage{tikz}
+\newcommand{\HUB@name@D}{Humboldt-Universität zu Berlin}
+\newcommand{\HUB@name@E}{Humboldt-Universität zu Berlin}
+\newcommand{\HUB@text@D}{}
+\newcommand{\HUB@text@E}{}
+\gdef\HUB@Web{http://bit.ly/hub-macsy}
+\let\HUB@www=\HUB@Web
+\newcommand{\HUBURL}[1]{\gdef\HUB@Web{{#1}}}
+\let\HUBWWW=\HUBURL
+\let\HUB@WebTxt=\relax
+\gdef\HUB@wtext@D{Web}
+\gdef\HUB@wtext@E{Web}
+\newsavebox{\HUB@titimg}
+\newlength{\HUB@titimgwd}
+\newcommand{\HUB@pgftext}[5][HUBblack]{%
+  \textcolor{#1}{\fontfamily{\HUB@fam}\fontsize{#2}{#3}%
+    \fontseries{#4}\upshape#5}
+}
+\newcommand{\HUBtitleimage}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\HUB@titimg}{\includegraphics[width=\HUB@titimgwd]{#2}}
+  \else
+    \sbox{\HUB@titimg}{\includegraphics[#1,width=\HUB@titimgwd]{#2}}
+  \fi}
+\let\HUBtitelbild=\HUBtitleimage
+\newcommand{\TitleImage}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\HUB@titimg}{\includegraphics{#2}}
+  \else
+    \sbox{\HUB@titimg}{\includegraphics[#1]{#2}}
+  \fi}
+\gdef\HUB@logo@clrD{husiegel_bw}
+\gdef\HUB@logo@bwD{husiegel_sw}
+\gdef\HUB@logo@iclrD{husiegel_bw}
+\gdef\HUB@logo@ibwD{husiegel_sw}
+\gdef\HUB@logo@clrE{husiegel_bw}
+\gdef\HUB@logo@bwE{husiegel_sw}
+\gdef\HUB@logo@iclrE{husiegel_bw}
+\gdef\HUB@logo@ibwE{husiegel_sw}
+\gdef\HUB@logo{HUBlogo_RGB_frutiger_RGB}
+\gdef\HUB@logos{HUBlogo_sw_frutiger_CMYK}
+\gdef\HUB@logow{HUBlogo_weiss_frutiger_CMYK}
+\gdef\HUB@logowg{HUBlogo_weiss_gruen_frutiger_CMYK}
+\gdef\HUB@logo@clrOZ{HUBlogo_4c_frutiger_CMYK-OZ}
+\let\HUB@logoOZ=\HUB@logo@clrOZ
+\gdef\HUB@logo@bwOZ{HUBlogo_sw_frutiger_CMYK-OZ}
+\let\HUB@logoOZs=\HUB@logo@bwOZ
+\gdef\HUB@logo@iclrOZ{HUBlogo_4c_weiss_frutiger_CMYK-OZ}
+\gdef\HUB@logo@ibwOZ{HUBlogo_weiss_frutiger_CMYK-OZ}
+\let\HUB@logoOZw=\HUB@logo@ibwOZ
+\gdef\FZK@logo{FZK-logo-re-SW}
+\gdef\UKA@logo{Wortbildmarke_schwarz}
+\let\FZKlogo=\FZK@logo
+\let\HUBlogo=\HUB@logo
+\let\UKAlogo=\UKA@logo
+\gdef\HUB@today@TD{\number\day.\space\ifcase\month\or Januar\or Februar\or
+  {M\"arz}\or April\or Mai\or Juni\or Juli\or August\or September\or Oktober\or
+  November\or Dezember\fi\space\number\year}
+\gdef\HUB@today@TE{\ifcase\month\or January\or February\or March\or April\or
+  May\or June\or July\or August\or September\or October\or November\or
+  December\fi\space\number\day,\space\number\year}
+\let\ttoday=\HUB@today@TD
+\gdef\HUB@today@ND{%
+  \ifnum\number\day<10{0}\fi\number\day.%
+  \ifnum\number\month<10{0}\fi\number\month.%
+  \ifnum\number\year<10{0}\fi\number\year}
+\gdef\HUB@today@NE{%
+  \ifnum\number\year<10{0}\fi\number\year-%
+  \ifnum\number\month<10{0}\fi\number\month-%
+  \ifnum\number\day<10{0}\fi\number\day}
+\let\ntoday=\HUB@today@ND
+\gdef\@date{\phantom{0}}
+\gdef\HUB@date{\ttoday}
+\let\HUB@DatTxt=\relax
+\gdef\DateNumbers{\gdef\HUB@date{\ntoday}}
+\gdef\DateText{\gdef\HUB@date{\ttoday}}
+\gdef\date#1{\gdef\HUB@date{#1}}
+\let\Datum=\date
+\newcommand{\HUB@German}{%
+  \let\HUB@name=\HUB@name@D
+  \let\HUB@text=\HUB@text@D
+  \let\HUB@WebTxt=\HUB@wtext@D
+  \let\ntoday=\HUB@today@ND
+  \let\ttoday=\HUB@today@TD
+  }
+\newcommand{\HUB@English}{%
+  \let\HUB@name=\HUB@name@E
+  \let\HUB@text=\HUB@text@E
+  \let\HUB@WebTxt=\HUB@wtext@E
+  \let\ntoday=\HUB@today@NE
+  \let\ttoday=\HUB@today@TE
+  }
+\HUB@German
+\newlength{\HUB@Framewd}
+\newlength{\HUB@RFramewd}
+\newlength{\HUB@Linewd}
+\newlength{\HUB@MFllx}
+\newlength{\HUB@MFlly}
+\newlength{\HUB@MFurx}
+\newlength{\HUB@MFury}
+\newcommand{\HUB@MFrame}[1][0mm]{%
+  \fill[HUBmframe] (\HUB@MFllx,\HUB@MFury)
+    -- (\HUB@MFllx,\HUB@MFlly) -- (\HUB@MFurx,\HUB@MFlly)
+    -- (\HUB@MFurx,\HUB@MFury) -- (\HUB@MFllx,\HUB@MFury)
+    -- (\HUB@MFllx+\HUB@Framewd,\HUB@MFury-\HUB@Framewd)
+    -- (\HUB@MFurx-2\HUB@Framewd,\HUB@MFury-\HUB@Framewd)
+    arc( 90:  0:\HUB@Framewd)
+    -- (\HUB@MFurx-\HUB@Framewd,\HUB@MFlly+\HUB@Framewd+#1)
+    -- (2\HUB@Framewd,\HUB@MFlly+\HUB@Framewd+#1)
+    arc(270:180:\HUB@Framewd)
+    -- (\HUB@MFllx+\HUB@Framewd,\HUB@MFury-\HUB@Framewd) -- cycle;
+  }
+\newcommand{\HUB@MFrameMOD}[1][0mm]{%
+  \fill[HUBmframe] (0mm,\paperheight)
+    -- (0mm,0mm) -- (\paperwidth,0mm)
+    -- (\paperwidth,\paperheight) -- (0mm,\paperheight)
+    -- (\HUB@Framewd,\paperheight-\HUB@Framewd)
+    -- (\paperwidth-2\HUB@Framewd,\paperheight-\HUB@Framewd)
+    arc( 90:  0:\HUB@Framewd)
+    -- (\paperwidth-\HUB@Framewd,\HUB@Framewd+#1)
+    -- (2\HUB@Framewd,\HUB@Framewd+#1)
+    arc(270:180:\HUB@Framewd)
+    -- (\HUB@Framewd,\paperheight-\HUB@Framewd) -- cycle;
+  }
+\newcommand{\HUB@MFrameRA}[1][0mm]{%
+  \draw[HUBrframe,line width=\HUB@RFramewd] (\HUB@MFllx+#1,\HUB@MFury)
+    -- (\HUB@MFllx+#1,\HUB@MFlly+\HUB@Framewd)
+    arc(180:270:\HUB@Framewd)
+    -- (\HUB@MFurx+#1,\HUB@MFlly)
+    -- (\HUB@MFurx+#1,\HUB@MFury-\HUB@Framewd)
+    arc(  0: 90:\HUB@Framewd) -- cycle;
+  }
+\newcommand{\HUB@MFhdr}[5][0mm]{%
+  \fill[HUBheadbg] (#2+#1,#5)
+    -- (#2+#1,#5-\HUB@MFHdh)
+    -- (#4+#1,#5-\HUB@MFHdh)
+    -- (#4+#1,#5-\HUB@Framewd)
+    arc(0:90:\HUB@Framewd) -- cycle;
+  }
+\newcommand{\HUB@marksymbol}[1][HUBblue]{%
+  \tikz \filldraw[#1] (0cm,7cm)
+    -- (0cm,2cm) arc(180:270:2cm) -- (7cm,0cm)
+    -- (7cm,5cm) arc(  0: 90:2cm) -- cycle;}
+\let\HUBmark=\HUB@marksymbol
+\newcommand{\HUB@mark}{\resizebox{1ex}{1ex}{\HUB@marksymbol}}
+\newsavebox{\HUB@sbx}
+\newlength{\vgdist}
+\setlength{\vgdist}{0mm}
+\newlength{\HUB@tlen}
+\newlength{\HUB@tlenA}
+\newcommand{\HUB@Box}[1][\relax]{%
+  \HUB@tlen=\ht\HUB@sbx%
+  \HUB@tlenA=\dp\HUB@sbx%
+  \addtolength{\HUB@tlen}{\HUB@tlenA}%   height of image
+  \addtolength{\HUB@tlen}{2\vgdist}%     height of image + distance
+  \HUB@tlenA=\wd\HUB@sbx%                width of image
+  \addtolength{\HUB@tlenA}{2\vgdist}%    width of image + distance
+  \begin{tikzpicture}
+     \clip (0pt,\HUB@tlen+2\HUB@Linewd)
+       -- (0pt,\HUB@Framewd+.5\HUB@Linewd)
+       arc(180:270:\HUB@Framewd+.5\HUB@Linewd)
+       -- (\HUB@tlenA+2\HUB@Linewd,0pt)
+       -- (\HUB@tlenA+2\HUB@Linewd,\HUB@tlen-\HUB@Framewd+1.5\HUB@Linewd)
+       arc(0:90:\HUB@Framewd+.5\HUB@Linewd) -- cycle;
+     \ifx#1\relax\relax\else
+       \fill[HUBblack15] (.5\HUB@Linewd,.5\HUB@Linewd)
+         rectangle (\HUB@tlenA+1.5\HUB@Linewd,\HUB@tlen+1.5\HUB@Linewd);
+     \fi
+     \pgftext[at=\pgfpoint{\vgdist+\HUB@Linewd}{\vgdist+\HUB@Linewd},left,bottom]{%
+       \usebox{\HUB@sbx}}
+     \draw[HUBblack50,line width=\HUB@Linewd]
+       (.5\HUB@Linewd,\HUB@tlen+1.5\HUB@Linewd)
+       -- (.5\HUB@Linewd,\HUB@Framewd+.5\HUB@Linewd)
+       arc(180:270:\HUB@Framewd)
+       -- (\HUB@tlenA+1.5\HUB@Linewd,.5\HUB@Linewd)
+       -- (\HUB@tlenA+1.5\HUB@Linewd,\HUB@tlen-\HUB@Framewd+1.5\HUB@Linewd)
+       arc(0:90:\HUB@Framewd) -- cycle;
+  \end{tikzpicture}%
+}
+\newcommand{\HUBimage}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\HUB@sbx}{\includegraphics{#2}}
+  \else
+    \sbox{\HUB@sbx}{\includegraphics[#1]{#2}}
+  \fi
+  \HUB@Box%
+}
+\let\HUBbild=\HUBimage
+\newcommand{\HUBvectorgraphics}[2][\relax]{%
+  \ifx#1\relax
+    \sbox{\HUB@sbx}{\includegraphics{#2}}
+  \else
+    \sbox{\HUB@sbx}{\includegraphics[#1]{#2}}
+  \fi
+  \HUB@Box[bg]%
+}
+\let\HUBvektorgrafik=\HUBvectorgraphics
+\newcommand{\HUBframe}[2][\relax]{%
+  \sbox{\HUB@sbx}{#2}
+  \ifx#1\relax
+    \HUB@Box%
+  \else
+    \HUB@Box[bg]%
+  \fi%
+}
+\let\HUBrahmen=\HUBframe
+\endinput
+%%
+%% End of file `HUBdefs.sty'.

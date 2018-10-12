@@ -1,0 +1,245 @@
+%%
+%% This is file `beamerinnerthemeHUB.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `inner,gridinner')
+%% 
+%% This is a generated file.
+%% 
+%% 
+%% Copyright (C) 2010 by Klaus Braune <klaus.braune@kit.edu>,
+%% Steinbuch Centre for Computing (SCC) at Karlsruhe Institute of Technology (KIT)
+%%
+%% Sep 2018:
+%% Adapted by Henning Meyerhenke, Institute of Computer Science at HU Berlin
+%% 
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{rcs}
+\RCS $Date: 2010/07/07 14:35:17 $
+\RCS $Revision: 1.0 $
+\ProvidesPackage{beamerinnerthemeHUB}
+    [\RCSRawDate\space v\RCSRevision\space Inner part of the beamer theme HUB]
+
+\newif\ifHUB@top\HUB@topfalse
+\DeclareOption{t}{\HUB@toptrue}
+\ProcessOptions
+\mode<presentation>
+\newlength{\HUB@tmplen}
+\newcommand{\HUB@GetHt}[6][194\K@mm]{%
+  \sbox{\HUB@sbx}{\parbox[b]{#1}{\raggedright#5#6\vphantom{g}}}%
+  \setlength{\HUB@tmplen}{\ht\HUB@sbx}%
+  \addtolength{\HUB@tmplen}{#3}
+  \ifdim\HUB@tmplen<0pt\setlength{\HUB@tmplen}{0pt}\fi
+ }
+\let\HUB@frametitle@org=\frametitle
+\def\frametitle{\@ifnextchar<\HUB@fr@titB\HUB@fr@titA}
+\def\HUB@fr@titA{\@ifnextchar[\HUB@fr@titAB\HUB@fr@titAA}
+\def\HUB@fr@titAA#1{%
+  \HUB@GetHt{8\K@mm}{-8.5742pt}{0\K@mm}{\HUB@fnt@framtitl}{#1}%
+  \vspace*{\HUB@tmplen}\HUB@frametitle@org{#1}}
+\def\HUB@fr@titAB[#1]#2{%
+  \HUB@GetHt{8\K@mm}{-8.5742pt}{0\K@mm}{\HUB@fnt@framtitl}{#1}%
+  \vspace*{\HUB@tmplen}\HUB@frametitle@org[#1]{#2}}
+\def\HUB@fr@titB<#1>{\@ifnextchar[{\HUB@fr@titBB<#1>}{\HUB@fr@titBA<#1>}}
+\def\HUB@fr@titBA<#1>#2{%
+  \HUB@GetHt{8\K@mm}{-8.5742pt}{0\K@mm}{\HUB@fnt@framtitl}{#1}%
+  \vspace*{\HUB@tmplen}\HUB@frametitle@org<#1>{#2}}
+\def\HUB@fr@titBB<#1>[#2]#3{%
+  \HUB@GetHt{8\K@mm}{-8.5742pt}{0\K@mm}{\HUB@fnt@framtitl}{#1}%
+  \vspace*{\HUB@tmplen}\HUB@frametitle@org<#1>[#2]{#3}}
+\let\HUB@framesubtitle@org=\framesubtitle
+\def\framesubtitle{\@ifnextchar<\HUB@fr@stitB\HUB@fr@stitA}
+\def\HUB@fr@stitA#1{%
+  \HUB@GetHt{6.5\K@mm}{4\K@mm}{0\K@mm}{\HUB@fnt@framsubtit}{#1}%
+  \vspace*{\HUB@tmplen}\HUB@framesubtitle@org{#1}}
+\def\HUB@fr@stitB<#1>#2{%
+  \HUB@GetHt{6.5\K@mm}{4\K@mm}{0\K@mm}{\HUB@fnt@framsubtit}{#1}%
+  \vspace*{\HUB@tmplen}\HUB@framesubtitle@org{#1}}
+\newcommand{\max@itemdepth}{6}
+\newcommand{\max@enumdepth}{6}
+\renewcommand{\itemize}[1][]{%
+  \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+  \ifnum \@itemdepth >\max@itemdepth\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth%
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+      {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+      {\def\makelabel##1{%
+          {%
+            \hss\llap{{%
+                \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+          }%
+        }%
+       \expandafter\setlength{\labelsep}%
+   {\csname labelsep@item\romannumeral\the\@itemdepth\endcsname}
+       \expandafter\setlength{\itemindent}%
+   {\csname item@indent\romannumeral\the\@itemdepth\endcsname}
+      }
+  \fi%
+  \beamer@cramped%
+  \raggedright%
+  \beamer@firstlineitemizeunskip%
+}
+\defbeamertemplateparent{itemize items}[HUB]{itemize item,itemize subitem,itemize subsubitem,subsubsubitem,subsubsubsubitem,subsubsubsubsubitem}
+{}
+\setbeamertemplate{items}[HUB]
+\setbeamertemplate{itemize item}{\HUB@mark}
+\setbeamertemplate{itemize subitem}{\HUB@mark}
+\setbeamertemplate{itemize subsubitem}{\HUB@mark}
+\setbeamertemplate{itemize subsubsubitem}{\HUB@mark}
+\setbeamertemplate{itemize subsubsubsubitem}{\HUB@mark}
+\setbeamertemplate{itemize subsubsubsubsubitem}{\HUB@mark}
+\defbeamertemplatealias{itemize subsubsubitem}{triangle}{default}
+\defbeamertemplatealias{itemize subsubsubsubitem}{triangle}{default}
+\defbeamertemplatealias{itemize subsubsubsubsubitem}{triangle}{default}
+\defbeamertemplate{itemize subsubsubitem}{circle}{\tiny\raise0.5pt\hbox{\textbullet}}
+\defbeamertemplate{itemize subsubsubsubitem}{circle}{\tiny\raise0.5pt\hbox{\textbullet}}
+\defbeamertemplate{itemize subsubsubsubsubitem}{circle}{\tiny\raise0.5pt\hbox{\textbullet}}
+\defbeamertemplate{itemize subsubsubitem}{square}{\footnotesize\hbox{\vrule width 1ex height 1ex}}
+\defbeamertemplate{itemize subsubsubsubitem}{square}{\footnotesize\hbox{\vrule width 1ex height 1ex}}
+\defbeamertemplate{itemize subsubsubsubsubitem}{square}{\footnotesize\hbox{\vrule width 1ex height 1ex}}
+\defbeamertemplate{itemize subsubsubitem}{ball}{\raise0.2pt\beamer@usesphere{subsubsubitem projected}{smallsphere}}
+\defbeamertemplate{itemize subsubsubsubitem}{ball}{\raise0.2pt\beamer@usesphere{subsubsubsubitem projected}{smallsphere}}
+\defbeamertemplate{itemize subsubsubsubsubitem}{ball}{\raise0.2pt\beamer@usesphere{subsubsubsubsubitem projected}{smallsphere}}
+\def\usesubsubsubitemizeitemtemplate{\setbeamertemplate{itemize subsubsubitem}}
+\def\usesubsubsubsubitemizeitemtemplate{\setbeamertemplate{itemize subsubsubsubitem}}
+\def\usesubsubsubsubsubitemizeitemtemplate{\setbeamertemplate{itemize subsubsubsubsubitem}}
+\defbeamertemplate*{itemize/enumerate subsubsubbody begin}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubbody end}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubbody begin}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubbody end}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubsubbody begin}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubsubsubsubbody end}{default}{}
+\newcounter{enumv}
+\newcounter{enumvi}
+\renewcommand{\theenumiv}{\arabic{enumiv}}
+\renewcommand{\theenumv}{\arabic{enumv}}
+\renewcommand{\theenumvi}{\arabic{enumvi}}
+\newcommand{\insertsubsubsubenumlabel}{\theenumiv}
+\newcommand{\insertsubsubsubsubenumlabel}{\theenumv}
+\newcommand{\insertsubsubsubsubsubenumlabel}{\theenumvi}
+\def\enumerate{%
+  \ifnum\@enumdepth>\max@enumdepth\relax\@toodeep
+  \else%
+    \advance\@enumdepth\@ne%
+    \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+    \advance\@itemdepth\@ne%
+  \fi%
+  \beamer@computepref\@enumdepth%
+  \edef\beamer@enumtempl{enumerate \beameritemnestingprefix item}%
+  \@ifnextchar[{\beamer@@enum@}{\beamer@enum@}}
+\def\beamer@enum@{%
+  \beamer@computepref\@itemdepth%
+  \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+  \expandafter
+    \list
+      {\usebeamertemplate{\beamer@enumtempl}}
+      {\usecounter\@enumctr%
+        \def\makelabel##1{{\hss\llap{{%
+                \usebeamerfont*{enumerate \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{enumerate \beameritemnestingprefix item}##1}}}}%
+       \expandafter\setlength{\labelsep}%
+   {\csname labelsep@enum\romannumeral\the\@itemdepth\endcsname}
+       \expandafter\setlength{\itemindent}%
+   {\csname enum@indent\romannumeral\the\@itemdepth\endcsname}
+      }%
+  \beamer@cramped%
+  \raggedright%
+  \beamer@firstlineitemizeunskip%
+}
+\def\beamer@computepref#1{%
+  \let\beameritemnestingprefix\@empty%
+  \ifcase#1\or\or\def\beameritemnestingprefix{sub}\or\def\beameritemnestingprefix{subsub}\or\def\beameritemnestingprefix{subsubsub}\or\def\beameritemnestingprefix{subsubsubsub}\or\def\beameritemnestingprefix{subsubsubsubsub}\or\@toodeep\fi%
+}
+\defbeamertemplateparent{enumerate items}[HUB]{enumerate item,enumerate subitem,enumerate subsubitem,enumerate subsubsubitem,enumerate subsubsubsubitem,enumerate mini}
+{}
+\defbeamertemplate*{enumerate subsubsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel.\insertsubsubsubenumlabel}
+\defbeamertemplate*{enumerate subsubsubsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel.\insertsubsubsubenumlabel.\insertsubsubsubsubenumlabel}
+\defbeamertemplate*{enumerate subsubsubsubsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel.\insertsubsubsubenumlabel.\insertsubsubsubsubenumlabel.\insertsubsubsubsubsubenumlabel}
+\defbeamertemplate*{enumerate subsubsubitem}{ball}
+{
+  \begin{pgfpicture}{-1ex}{-0.55ex}{1ex}{1ex}
+    \usebeamercolor[fg]{subsubsubitem projected}
+    {\pgftransformscale{1.4}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+    \pgftext{%
+      \usebeamerfont*{subsubitem projected}%
+      \insertsubsubsubenumlabel}
+  \end{pgfpicture}%
+}
+\defbeamertemplate*{enumerate subsubsubsubitem}{ball}
+{
+  \begin{pgfpicture}{-1ex}{-0.55ex}{1ex}{1ex}
+    \usebeamercolor[fg]{subsubsubsubitem projected}
+    {\pgftransformscale{1.4}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+    \pgftext{%
+      \usebeamerfont*{subsubsubitem projected}%
+      \insertsubsubsubsubenumlabel}
+  \end{pgfpicture}%
+}
+\defbeamertemplate*{enumerate subsubsubsubsubitem}{ball}
+{
+  \begin{pgfpicture}{-1ex}{-0.55ex}{1ex}{1ex}
+    \usebeamercolor[fg]{subsubsubsubsubitem projected}
+    {\pgftransformscale{1.4}\pgftext{\normalsize\pgfuseshading{bigsphere}}}
+    \pgftext{%
+      \usebeamerfont*{subsubsubsubitem projected}%
+      \insertsubsubsubsubsubenumlabel}
+  \end{pgfpicture}%
+}
+\setbeamertemplate{title page}{%
+  \rule{0pt}{0pt}
+  \vfill
+  \begin{tikzpicture}
+    \ifHUB@top
+      \useasboundingbox (.558,-1.8210) rectangle (13.358,7.7790);
+    \else
+      \useasboundingbox (.558,-1.6210) rectangle (13.358,7.9790);
+    \fi
+    % title image
+    \fill[white] (0\K@mm,0\K@mm) rectangle (254\K@mm,93.0\K@mm);
+    \pgftext[at=\pgfpoint{7\K@mm}{15\K@mm},left,bottom]
+      {\usebox{\HUB@titimg}}
+    \fill[white] (3\K@mm,89\K@mm) rectangle (251\K@mm,89.5\K@mm);
+    \fill[HUBblue] (3\K@mm,89.5\K@mm) rectangle (251\K@mm,101.5\K@mm);
+    \pgftext[at=\pgfpoint{11.0\K@mm}{95.5\K@mm},left]
+      {\textcolor{white}{\bfseries \HUB@fnt@inst\insertinstitute}}
+    \fill[white] (0\K@mm,101.5\K@mm) rectangle (254\K@mm,190.5\K@mm);
+%    \HUB@MFrame[\HUB@MFbadd] % HM: Trauerrand aus
+    \pgftext[at=\pgfpoint{243\K@mm}{180.5\K@mm},right,top] % HM
+      {\pgfimage[interpolate=true,width=38\K@mm]{\HUB@logo}} % HM
+    \pgftext[at=\pgfpoint{11.0\K@mm}{132\K@mm},left,base]
+      {\parbox[t]{186\K@mm}{\color{HUBblue} \raggedright\HUB@fnt@titl\inserttitle\\[3\K@mm]
+        \HUB@fnt@subtit\insertauthor}}
+%    \pgftext[at=\pgfpoint{11\K@mm}{4.5\K@mm},left,base]{%
+%      \settowidth{\HUB@tlen}{{\HUB@fnt@foot nationales
+%          Forschungszentrum in der Helmholtz-Gemeinschaft}}%
+%      \parbox[b]{\HUB@tlen}{\HUB@fnt@foot\raggedright\HUB@text}}
+    \pgftext[at=\pgfpoint{247\K@mm}{4.9\K@mm},base,right]
+       {{\fontsize{14\K@pt}{19\K@pt}\selectfont\bfseries\color{HUBblue}\HUB@Web}}
+  \end{tikzpicture}%
+  \ifHUB@titlepage@z\setcounter{framenumber}{0}\fi
+}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamerinnerthemeHUB.sty'.

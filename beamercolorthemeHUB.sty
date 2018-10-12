@@ -1,0 +1,92 @@
+%%
+%% This is file `beamercolorthemeHUB.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% KITbeamer.dtx  (with options: `color')
+%% 
+%% This is a generated file.
+%% 
+%% 
+%% Copyright (C) 2010 by Klaus Braune <klaus.braune@kit.edu>,
+%% Steinbuch Centre for Computing (SCC) at Karlsruhe Institute of Technology (KIT)
+%% 
+%% Nov 2011:
+%% Some colors changed by Henning Meyerhenke, Institute of Theoretical Informatics
+%% at Karlsruhe Institute of Technology (HUB)
+%%
+%% Sep 2018:
+%% Some colors changed by Henning Meyerhenke, Institute of Computer Science
+%% at HU Berlin
+%% 
+%%
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+%%
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{rcs}
+\RCS $Date: 2010/07/07 14:35:17 $
+\RCS $Revision: 1.0 $
+\ProvidesPackage{beamercolorthemeHUB}
+    [\RCSRawDate\space v\RCSRevision\space Color definitions of the beamer theme HUB]
+
+\mode<presentation>
+
+\RequirePackage{HUBcolors}
+\colorlet{enum.fg}{white}
+\colorlet{enum.bg}{HUBblue}
+\colorlet{subenum.fg}{HUBblack}
+\colorlet{subenum.bg}{HUBblue50}
+\colorlet{subsubenum.fg}{white}
+\colorlet{subsubenum.bg}{HUBblue}
+\colorlet{subsubsubenum.fg}{HUBblack}
+\colorlet{subsubsubenum.bg}{HUBblue50}
+\colorlet{subsubsubsubenum.fg}{white}
+\colorlet{subsubsubsubenum.bg}{HUBblack}
+\colorlet{subsubsubsubsubenum.fg}{white}
+\colorlet{subsubsubsubsubenum.bg}{HUBblack50}
+\setbeamercolor{normal text}{fg=HUBblack,bg=white}
+\setbeamercolor{example text}{fg=HUBblue}
+\setbeamercolor{structure}{fg=HUBblack70,bg=HUBblue15}
+\setbeamercolor{palette secondary}{use=structure,fg=structure.fg!75!HUBblack}
+\setbeamercolor{palette tertiary}{use=structure,fg=structure.fg!50!HUBblack}
+\setbeamercolor{palette quaternary}{fg=HUBblack}
+\setbeamercolor{frametitle}{parent=palette quaternary}
+\setbeamercolor{navigation symbols}{use=structure,fg=structure.fg}
+\setbeamercolor{navigation symbols dimmed}{use=structure,fg=HUBblack15}
+\setbeamercolor{subsubsubitem}{parent=subsubitem}
+\setbeamercolor{subsubsubsubitem}{parent=subsubsubitem}
+\setbeamercolor{subsubsubsubsubitem}{parent=subsubsubsubitem}
+\setbeamercolor{item projected}{parent=item,use=item,fg=enum.fg,bg=enum.bg}
+\setbeamercolor{subitem projected}{parent=item projected,fg=subenum.fg,bg=subenum.bg}
+\setbeamercolor{subsubitem projected}{parent=subitem projected,fg=subsubenum.fg,bg=subsubenum.bg}
+\setbeamercolor{subsubsubitem projected}{parent=subsubitem projected,fg=subsubsubenum.fg,bg=subsubsubenum.bg}
+\setbeamercolor{subsubsubsubitem projected}{parent=subsubsubitem projected,fg=subsubsubsubenum.fg,bg=subsubsubsubenum.bg}
+\setbeamercolor{subsubsubsubsubitem projected}{parent=subsubsubsubitem projected,fg=subsubsubsubsubenum.fg,bg=subsubsubsubsubenum.bg}
+\setbeamercolor{enumerate subsubsubitem}{parent=subsubsubitem}
+\setbeamercolor{enumerate subsubsubsubitem}{parent=subsubsubsubitem}
+\setbeamercolor{enumerate subsubsubsubsubitem}{parent=subsubsubsubsubitem}
+\setbeamercolor{itemize subsubsubitem}{parent=subsubsubitem}
+\setbeamercolor{itemize subsubsubsubitem}{parent=subsubsubsubitem}
+\setbeamercolor{itemize subsubsubsubsubitem}{parent=subsubsubsubsubitem}
+\setbeamercolor{itemize/enumerate subsubsubbody}{}
+\setbeamercolor{itemize/enumerate subsubsubsubbody}{}
+\setbeamercolor{itemize/enumerate subsubsubsubsubbody}{}
+% insertions by Henning Meyerhenke below
+\setbeamercolor{block body}{bg=HUBblack05}%bg=background, fg= foreground
+
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamercolorthemeHUB.sty'.
