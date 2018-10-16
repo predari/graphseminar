@@ -31,7 +31,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 % -----------------------------------------------------------------------------
-
+\usepackage{multirow}
 
 % -----------------------------------------------------------------------------
 % -- custom commands
@@ -54,11 +54,11 @@
 % -- titlepage
 % -----------------------------------------------------------------------------
 
-\title{Algorithmische Methoden für schwere Optimierungsprobleme}
+\title{Seminar on Graph Algorithms}
 \subtitle{Prof. Dr. Henning Meyerhenke}
 
 
-\author{Henning Meyerhenke}
+\author{Predari Maria}
 \institute{HU Berlin $\cdot$ Institut für Informatik $\cdot$ Modellierung und Analyse komplexer Systeme}
 
 \TitleImage[height=\titleimageht]{images/title-networks}
@@ -121,31 +121,83 @@
 % -----------------------------------------------------------------------------
 
 
-\begin{frame}{Content}
-Purpose:
+% 
+
+
+\begin{frame}{Preliminary Discussion}
 \begin{itemize}
-\item Study of given topics from research papers
-\item Written paper about 12 pages
-\item Presentation of 30 minutes
+\item General Organization
+\item Communication and Evaluation
+\item Schedule and Assignments
+\item Presentation of Topics
 \end{itemize}
 
 
 \end{frame}
+
+\begin{frame}{General Organization}
+
+  Practical Information
+  \begin{itemize}
+  \item every Thursday, 11:00 - 13:00 (?) where ?
+  \item participation mandatory
+  \end{itemize}
+  Main tasks
+  \begin{itemize}
+  \item study and present a classic graph algorithm (individual)
+  \item project on graph related challenges (groups)
+  \item written report (~12 pages long)
+  \item presentation ( 30 minutes + QA)
+  \item deliver and present project (group)  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Communication and Evaluationn}
+  Advisors
+  \begin{itemize}
+  \item Prof. Henning Meyerhenke (\url{Henning.Meyerhenke@informatik.hu-berlin.de})
+  \item Dr Maria Predari (\url{Maria.Predari@informatik.hu-berlin.de})
+  \item Eugenio Angriman (\url{Eugenio.Angriman@informatik.hu-berlin.de})
+\end{itemize}
+  Communication through moodle \url{https://moodle.hu-berlin.de} (Angewandte Graphenalgorithmen)
+
+  \begin{block}{Evaluation}
+  $Grade_{final} = 0.4 \times Grade_{present} + 0.3 \times Grade_{report} + 0.3 \times Grade_{project}$
+  \end{block}
+\end{frame}
+
 
 
 \begin{frame}{Schedule}
-\begin{itemize}
-\item {April 24, 16:00 -- 17:00 in 5.08 :} Introduction to presentation techniques (H. Meyerhenke)
-\pause
-\medskip
-\item  {May 8:} Brief presentation of topics by the participants
-\pause
-\item {May 29, June 19, June 26, July 10, July 17:}\\ Final presentations
-\medskip
-\pause
-\item {July 31:} Deadline for written manuscript
-\end{itemize}
+
+\small{
+    \centering
+      \begin{tabular}{|l||l|} \hline
+        Week & Description  \\ \hline
+        1 &  Presentation of topics \\
+        2 &  Graph Challenge I \& NetworKit \\
+        3 &  Graph Challenge II \& Python \\
+        4 &  Formation of lab teams; Presentation Techniques \\
+        5 &  Introduction to C++ \\
+        6 &  Prep talks (10 minutes each) \\
+        7 &  Lab \\
+        8 &  Lab \\
+        9 &  Presentation Topics 1-2 \\
+        10 & Presentation Topics 3-4 \\
+        11 & Lab \\ 
+        12 & Presentation Topics 5-6 \\
+        13 & Presentation Topics 7-8 \\
+        14 & Presentation Topics 9-10 \\ 
+        15 & Lab \\
+        16 & Lab \\
+        17 & Programming project presentation (in groups) \\ \hline
+      \end{tabular}
+    %}
+  %  \caption{Summary of event selection cuts}
+  % \end{table}
+}
 \end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -166,11 +218,16 @@ Purpose:
 \end{itemize}
 
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%
 %         2       %
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Fast MST by Fredman and Tarjan}
+
+\begin{block}
+  find a spanning tree of a graph 
+\end{block}
 
 \begin{center}
 \includegraphics[height=0.2\textwidth]{FredmanTarjan}\\
