@@ -58,7 +58,7 @@
 \subtitle{Prof. Dr. Henning Meyerhenke}
 
 
-\author{Predari Maria}
+\author{Prof. Dr. Henning Meyerhenke, Dr. Maria Predari, Eugenio Angiman}
 \institute{HU Berlin $\cdot$ Institut für Informatik $\cdot$ Modellierung und Analyse komplexer Systeme}
 
 \TitleImage[height=\titleimageht]{images/title-networks}
@@ -124,7 +124,13 @@
 % 
 
 
-\begin{frame}{Preliminary Discussion}
+ \begin{frame}{Preliminary Discussion}
+
+   \begin{center}
+     \huge
+   Welcome to the graph algorithm seminar!\\
+   \end{center}
+
 \begin{itemize}
 \item General Organization
 \item Communication and Evaluation
@@ -139,23 +145,24 @@
 
   Practical Information
   \begin{itemize}
-  \item every Thursday, 11:00 - 13:00 (?) where ?
-  \item participation mandatory
+  \item every Thursday, 11:00 - 13:00, Room 3.212
+  \item participation almost mandatory
   \end{itemize}
+  ~\\
   Main tasks
   \begin{itemize}
   \item study and present a classic graph algorithm (individual)
   \item project on graph related challenges (groups)
-  \item written report (~12 pages long)
-  \item presentation ( 30 minutes + QA)
-  \item deliver and present project (group)  
+  \item written report ($\sim$12 pages long)
+  \item presentation (30 minutes + QA)
+  \item deliver and present project (groups)  
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Communication and Evaluationn}
   Advisors
   \begin{itemize}
-  \item Prof. Henning Meyerhenke (\url{Henning.Meyerhenke@informatik.hu-berlin.de})
+  \item Prof. Henning Meyerhenke (\url{meyerhenke@hu-berlin.de})
   \item Dr Maria Predari (\url{Maria.Predari@informatik.hu-berlin.de})
   \item Eugenio Angriman (\url{Eugenio.Angriman@informatik.hu-berlin.de})
 \end{itemize}
@@ -198,26 +205,31 @@
 }
 \end{frame}
 
+\begin{frame}
+  \frametitle{}
+  \huge
+  \centering
+  Topics
 
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%
 %         1       %
 %%%%%%%%%%%%%%%%%%% 
-\begin{frame}
-\frametitle{$A^*$ Algorithm for Shortest Paths}
+%% \begin{frame}
+%% \frametitle{$A^*$ Algorithm for Shortest Paths}
 
-\begin{center}
-\includegraphics[height=0.2\textwidth]{obstacle.png}\\
-~\\
-\end{center}
+%% \begin{center}
+%% \includegraphics[height=0.2\textwidth]{obstacle.png}\\
+%% ~\\
+%% \end{center}
 
-\begin{itemize}
-\item Original $A^*$ algorithm~[5]
-\medskip
-\item Use of $A^*$ algorithm in route planning~[4] 
-\end{itemize}
-
-\end{frame}
+%% \begin{itemize}
+%% \item Original $A^*$ algorithm~[5]
+%% \medskip
+%% \item Use of $A^*$ algorithm in route planning~[4] 
+%% \end{itemize}
+%% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%
 %         2       %
@@ -225,9 +237,19 @@
 \begin{frame}
 \frametitle{Fast MST by Fredman and Tarjan}
 
-\begin{block}
-  find a spanning tree of a graph 
+\begin{block}{}
+find a spanning tree of an edge-weighted graph with minimum total edge weight 
 \end{block}
+
+\begin{itemize}
+\item reminder of Prim's algorithm~\cite{krumke09}
+%\medskip
+\item drawbacks of Prim's algorithm~\cite{krumke09,Eisner97}
+%\medskip
+\item algorithm by Fredman and Tarjan~\cite{krumke09,Eisner97}
+%\medskip
+\item running time analysis~\cite{krumke09}
+\end{itemize}
 
 \begin{center}
 \includegraphics[height=0.2\textwidth]{FredmanTarjan}\\
@@ -235,23 +257,17 @@
 From trees to trees of trees (forest)
 \end{center}
 
-\begin{itemize}
-\item Remind us of Prim's algorithm~[7]
-\medskip
-\item Drawbacks of Prim's algorithm~[7, 3]
-\medskip
-\item Algorithm by Fredman and Tarjan~[7, 3]
-\medskip
-\item Running time~[7]
-\end{itemize}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%
 %         3       %
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Approximation of Min-Steiner-Trees}
+  \frametitle{Approximation of Min-Steiner-Trees}
+\begin{block}{}
+find a tree of minimum edge weight that contains a certain vertex subset (terminals). It may include additional vertices. 
+\end{block}
+
 
 \begin{center}
 \includegraphics[height=0.22\textwidth]{stree-1.png}\qquad
@@ -262,12 +278,13 @@ From trees to trees of trees (forest)
 %\includegraphics[height=0.25\textwidth]{figures/steiner2}\qquad
 %\includegraphics[height=0.25\textwidth]{figures/steiner3}
 \end{center}
-~~~~~~$K = \{1, 2, 3, 4\}$~~~~~~~~~~~~~Steiner tree~~~~~~~~~~~~~~~Steiner tree\\
+~~~~~~$K = \{1, 2, 3, 4\}$~~~~~~~~~~~min Steiner tree~~~~~~~~~~~~~min Steiner tree\\
 ~\\
 \begin{itemize}
-\item Definitions (terminals, Steiner points) examples~[7]
-\medskip
-\item Approximation algorithm for Steiner trees, correctness~[7]
+\item definitions (terminals, Steiner points)~\cite{krumke09}
+%\medskip
+\item approximation algorithm for Steiner trees~\cite{krumke09}
+\item correctness of algorithm~\cite{krumke09} % solution approximation
 \end{itemize}
 
 \end{frame}
@@ -279,6 +296,10 @@ From trees to trees of trees (forest)
 \begin{frame}
 \frametitle{Edge Coloring Problem}
 
+\begin{block}{}
+  color the edges of a graph such that no adjacent edges have the same color using
+  the fewest possible colors
+  \end{block}
 \begin{center}
 \includegraphics[height=0.25\textwidth]{square}\quad
 \includegraphics[height=0.25\textwidth]{pentagon}\quad
@@ -288,10 +309,12 @@ From trees to trees of trees (forest)
 
 
 \begin{itemize}
-\item Theorems by K\"{o}nig and Vizing on edge chromatic number
-\item $\chi'(G) = \Delta(G)$ for bipartite graphs~[1]
-\item $\chi'(G) \leq \Delta(G) + 1$ in general~[1]
-\item Edge coloring algorithm by Misra and Gries~[8]
+\item theorems by K\"{o}nig and Vizing on edge chromatic number~\cite{daglib12}
+%\item $\chi'(G) = \Delta(G)$ for bipartite graphs~[1]
+  %\item $\chi'(G) \leq \Delta(G) + 1$ in general~[1]
+  \item chromatic index for bipartite and general graphs~\cite{daglib12}
+  \item algorithm by Misra and Gries for general graphs~\cite{Misra92}
+  %  \item correctness of algorithm
 \end{itemize}
 
 \end{frame}
@@ -299,39 +322,58 @@ From trees to trees of trees (forest)
 %%%%%%%%%%%%%%%%%%%
 %         5     %
 %%%%%%%%%%%%%%%%%%%
+% The PageRank algorithm outputs a probability distribution used to represent the likelihood that a person randomly clicking on links will arrive at any particular page.
 \begin{frame}
-\frametitle{The Planar Separator Theorem}
-% include figure of planar graph
-% figure of graph separator
-% paper to reference -->  "a separator theorem for planar graphs "
-% 4th chapter of graph theory book
+\frametitle{The PageRank Algorithm}
+\begin{block}{}
+  PageRank algorithm models the structure of pages on the web and measures the importance of each page
+\end{block}
 \begin{center}
-\includegraphics[height=0.3\textwidth]{separator.pdf}\qquad \qquad
-%\includegraphics[height=0.25\textwidth]{figures/mst}\qquad \qquad
-%\includegraphics[height=0.2\textwidth]{figures/uniform}
+\includegraphics[height=0.25\textwidth]{closeness-exmp.png}\qquad \qquad
 \end{center}
-~\\
 \begin{itemize}
-\item Definition and properties of planar graphs~[1]
-\medskip
-\item Kuratowski's Theorem~[1]
-\medskip
-\item The algorithm~[11]
+\item random surfer model, transition matrix~\cite{Brin98}
+\item computation of PageRank vector~\cite{Brin98} % as an eigenvector problem
+\item Perron-Frobenius theorem for convergence of Pagerank
+\item personilized PageRank~\cite{Jen03}
 \end{itemize}
 
 \end{frame}
-% http://theory.stanford.edu/~tim/w08b/w08b.html
+
+
+
+
+%% \begin{frame}
+%% \frametitle{The Planar Separator Theorem}
+%% \begin{center}
+%% \includegraphics[height=0.3\textwidth]{separator.pdf}\qquad \qquad
+%% %\includegraphics[height=0.25\textwidth]{figures/mst}\qquad \qquad
+%% %\includegraphics[height=0.2\textwidth]{figures/uniform}
+%% \end{center}
+%% ~\\
+%% \begin{itemize}
+%% \item Definition and properties of planar graphs~[1]
+%% \medskip
+%% \item Kuratowski's Theorem~[1]
+%% \medskip
+%% \item The algorithm~[11]
+%% \end{itemize}
+%% \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%
 %         6       %
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Assignment Problem}
-
+\frametitle{The Assignment Problem}
+\begin{block}{}
+  find a set of edges without common vertices (matching) in a weighted bipartite graph with maximum weight
+\end{block}
+\vspace{-1cm}
     \begin{columns}
     \begin{column}{.5\textwidth}
 \begin{table}[!ht]
-\small
+%\small
    \begin{tabular}{|c|c|c|c|} \hline
      workers& Job1 & Job2 & Job3 \\ \hline
      \textcolor{red}{Tom} & \$4  & \$4   & \$4  \\ \hline
@@ -340,14 +382,14 @@ From trees to trees of trees (forest)
      \end{tabular}
 \end{table} 
 \begin{itemize}
-\item Minimum weighted bipartite matching~[1]
-\medskip
-\item Hungarian algorithm~[1]
+\item  relation to max-flow problem, Hungarian algorithm~\cite{daglib12}
+\item running time analysis,
+\item algorithmic improvements
 \end{itemize}
         \end{column}
         \begin{column}{.5\textwidth}
         \centering
-\includegraphics[height=\textheight]{assignment.pdf}
+\includegraphics[height=1.3\textwidth]{assignment.pdf}
         \end{column}
         \end{columns}
 
@@ -362,19 +404,19 @@ From trees to trees of trees (forest)
 %         6       %
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Blossom Algorithm for Maximum Matching}
-
+\frametitle{ The Blossom Algorithm} %  for Maximum Matching
+\begin{block}{}
+ find maximum weight matching in a general graph
+  \end{block}
 \begin{center}
 \includegraphics[height=0.25\textwidth]{blossom-matching.png}
 %\includegraphics[height=0.25\textwidth]{figures/blossom}
 \end{center}
 
 \begin{itemize}
-\item Finding augmenting paths~[2]
-\medskip
-\item Blossoms and blossom contraction~[2]
-\medskip
-\item The algorithm~[2]
+\item finding augmenting paths~\cite{Edmonds65}
+\item blossoms and blossom contraction~\cite{Edmonds65}
+\item running time analysis
 \end{itemize}
 
 \end{frame}
@@ -384,8 +426,10 @@ From trees to trees of trees (forest)
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Minimum Cuts by Karger and Stein}
-
-%\begin{center}
+\begin{block}{}
+  find a partition of the vertices of a graph with the minimum number of edges whose endpoints are in different parts
+\end{block}
+  %\begin{center}
 %~~~~~~~~graph~~~~~~~~~~~~~~~~~~~~~~~~~~~~\textcolor{blue}{contraction}~~~~~~~~~~~~~~~~~~~~~~~~\textcolor{red}{min cut}~\\
 %\centering 
 \includegraphics[height=0.6\textheight]{min-cut-1.pdf}
@@ -397,12 +441,11 @@ From trees to trees of trees (forest)
 %\includegraphics[height=0.25\textwidth]{figures/minCut}\qquad \qquad
 %\includegraphics[height=0.25\textwidth]{figures/contraction}
 %\end{center}
+\vspace{-1cm}
 \begin{itemize}
-\item Edge contraction: definition and implementation~[6]
-\medskip
-\item Success probability~[6]
-\medskip
-\item Sequential Karger-Stein algorithm~[6]
+\item edge contraction: definition and implementation~\cite{Karger96}
+\item success probability~\cite{Karger96}
+\item Karger-Stein algorithm~\cite{Karger96}
 \end{itemize}
 
 \end{frame}
@@ -411,12 +454,10 @@ From trees to trees of trees (forest)
 %         8      %
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Spectral Partition}
-% include figure of laplacian
-
-% paper to reference -->  "filder's paper "
-% graph partitioning book about spectral
-% The investigation of complexity of recursive bisection could be found in the work by H. D. Simon and S. Teng
+  \frametitle{Spectral Partitioning}
+  \begin{block}{}
+   find a balanced partition of the vertices in a graph such that the number of edges with endpoints in different parts is minimized
+    \end{block}
 \begin{center}
 \includegraphics[height=0.3\textwidth]{laplacian-2}\qquad \qquad
 %\includegraphics[height=0.25\textwidth]{figures/mst}\qquad \qquad
@@ -424,9 +465,8 @@ From trees to trees of trees (forest)
 \end{center}
 ~\\
 \begin{itemize}
-\item Laplacian and properties~[14] % laplacian eigenvalues
-\medskip
-\item Fiedler vector~[10]
+\item Laplacian and properties~\cite{Bichot2013} % laplacian eigenvalues
+\item Fiedler eigenvalue and eigenvector~\cite{Fiedler73}
 \end{itemize}
 
 \end{frame}
@@ -437,7 +477,9 @@ From trees to trees of trees (forest)
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Tree Decomposition}
-
+\begin{block}{}
+  find a decomposition of the graph that represents the vertices of a given graph G as subtrees of a tree
+\end{block}
 \begin{center}
 %\includegraphics[height=0.25\textwidth]{figures/treeDecomp}
 \includegraphics[height=0.37\textheight]{my_tree_3.png}\qquad
@@ -446,13 +488,11 @@ From trees to trees of trees (forest)
 \end{center}
 
 \begin{itemize}
-\item Definition and examples~[7]
-%\medskip
-%\item Tree decompositions of trees~[7]
+\item definition and examples~\cite{krumke09}
 \medskip
-\item Properties of tree decompositions (cliques, minors)~[7]
+\item properties of tree decompositions (cliques, minors)~\cite{krumke09}
 \medskip
-\item Calculating tree decompositions of (chordal) graphs~[7]
+\item calculating tree decompositions of (chordal) graphs~\cite{krumke09}
 \end{itemize}
 
 \end{frame}
@@ -463,19 +503,20 @@ From trees to trees of trees (forest)
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Greedy Graph Algorithms / Matroids}
-
-\begin{center}
+\begin{block}{}
+  matroids are  structures that generalize the notion of linear independence in matrices. Find a maximum weight independent set in a matroid
+  %Find a maximum weight independent set in a matroid and solve the problem with greedy algorithm
+\end{block}
+  \begin{center}
 \includegraphics[height=0.2\textwidth]{vectors}\qquad \qquad
 \includegraphics[height=0.25\textwidth]{mst}\qquad \qquad
 \includegraphics[height=0.2\textwidth]{uniform}
 \end{center}
 ~\\
 \begin{itemize}
-\item Definition and examples of matroids~[9, 7]
-\medskip
-\item Matroid optimization problem~[9, 7]
-\medskip
-\item Greedy algorithm on matroids~[9, 7]
+\item definition and examples of matroids~\cite{Oxley92,krumke09}
+\item matroid optimization problem~\cite{Oxley92,krumke09}
+\item greedy algorithm on matroids~\cite{Oxley92,krumke09}
 \end{itemize}
 
 \end{frame}
@@ -486,14 +527,12 @@ From trees to trees of trees (forest)
 \begin{frame}
 \frametitle{List of Topics}
 \begin{enumerate}
-\item  $A^*$ Algorithm for Shortest Paths
-
 \item Fast MST by Fredman and Tarjan
 \item Approximation of Min-Steiner-Trees
-\item Edge Coloring Problem
-\item The Planar Separator Theorem
-\item Assignment Problem  
-\item Blossom Algorithm for Maximum Matching 
+\item The Edge Coloring Problem
+\item The PageRank Algorithm
+\item The Assignment Problem  
+\item The Blossom Algorithm 
 \item Minimum Cuts by Karger and Stein
 \item Spectral Partitioning
 \item Tree Decomposition
@@ -504,120 +543,128 @@ From trees to trees of trees (forest)
 \end{frame}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{References (1)}
-
-\begin{itemize}
-\item[1.]
-R.~{Diestel}.\\
-{\em {Graph Theory}}, volume 173 of {\em Graduate Texts in Mathematics}.\\
-Springer, 2010.
-
-\item[2.]
-J.~{Edmonds}.\\
-Paths, trees, and flowers.\\
-{\em Canad. J. Math.}, 17:449--467, 1965.
-
-\item[3.]
-J.~{Eisner}.\\
-State-of-the-art algorithms for minimum spanning trees - a tutorial discussion, 1997.
-
-\end{itemize}
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+        %        \bibliographystyle{amsalpha}
+        \bibliographystyle{acm}
+        \bibliography{biblio}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{References (2)}
 
-\begin{itemize}
-\item[4.]
-A.~V. {Goldberg} and C.~{Harrelson}.\\
-Computing the shortest path: $A^*$ search meets graph theory.\\
-In {\em Proceedings of the Sixteenth Annual ACM-SIAM Symposium on
-  Discrete Algorithms}, SODA '05, pages 156--165, Philadelphia, PA, USA, 2005.
-  %Society for Industrial and Applied Mathematics.
 
-\item[5.]
-P.~E. {Hart}, N.~J. {Nilsson}, and B.~{Raphael}.\\
-A formal basis for the heuristic determination of minimum cost paths.\\
-{\em IEEE Transactions on Systems, Science, and Cybernetics},
-  SSC-4(2):100--107, 1968.
-\end{itemize}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \begin{frame}
+%% \frametitle{References (1)}
 
-\end{frame}
+%% \begin{itemize}
+%% \item[1.]
+%% R.~{Diestel}.\\
+%% {\em {Graph Theory}}, volume 173 of {\em Graduate Texts in Mathematics}.\\
+%% Springer, 2010.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{References (3)}
+%% \item[2.]
+%% J.~{Edmonds}.\\
+%% Paths, trees, and flowers.\\
+%% {\em Canad. J. Math.}, 17:449--467, 1965.
 
-\begin{itemize}
-\item[6.]
-D.~R. {Karger} and C.~{Stein}.\\
-A new approach to the minimum cut problem.
-{\em J. ACM}, 43(4):601--640, 1996.
+%% \item[3.]
+%% J.~{Eisner}.\\
+%% State-of-the-art algorithms for minimum spanning trees - a tutorial discussion, 1997.
 
-\item[7.]
-S.O. Krumke and H.~Noltemeier.\\
-{\em Graphentheoretische Konzepte und Algorithmen}.\\
-Leitf{\"a}den der Informatik. Vieweg + Teubner, 2009.
+%% \end{itemize}
+%% \end{frame}
 
-\item[8.]
-J.~{Misra} and D.~{Gries}.\\
-A constructive proof of Vizing’s theorem.\\
-{\em Information Processing Letters}, 41, 1992. 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \begin{frame}
+%% \frametitle{References (2)}
 
-\item[9.]
-J.G. {Oxley}.\\
-{\em Matroid theory}.\\
-Oxford University Press, New York, USA, 1992.
-\end{itemize}
+%% \begin{itemize}
+%% \item[4.]
+%% A.~V. {Goldberg} and C.~{Harrelson}.\\
+%% Computing the shortest path: $A^*$ search meets graph theory.\\
+%% In {\em Proceedings of the Sixteenth Annual ACM-SIAM Symposium on
+%%   Discrete Algorithms}, SODA '05, pages 156--165, Philadelphia, PA, USA, 2005.
+%%   %Society for Industrial and Applied Mathematics.
 
-\end{frame}
+%% \item[5.]
+%% P.~E. {Hart}, N.~J. {Nilsson}, and B.~{Raphael}.\\
+%% A formal basis for the heuristic determination of minimum cost paths.\\
+%% {\em IEEE Transactions on Systems, Science, and Cybernetics},
+%%   SSC-4(2):100--107, 1968.
+%% \end{itemize}
 
-\begin{frame}
-\frametitle{References (4)}
+%% \end{frame}
 
-\begin{itemize}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \begin{frame}
+%% \frametitle{References (3)}
 
-\item[10.]
-M.~Fiedler.\\
-{\em Algebraic connectivity of Graphs}.\\
- Czechoslovak Mathematical Journal 23(98) (1973), 298?305.
+%% \begin{itemize}
+%% \item[6.]
+%% D.~R. {Karger} and C.~{Stein}.\\
+%% A new approach to the minimum cut problem.
+%% {\em J. ACM}, 43(4):601--640, 1996.
 
-\item[11.]
-R.~Lipton, and R.~Tarjan.\\
-{\em A separator theorem for planar graphs}.\\
-Siam J. Appl. Math., Vol. 36, No. 2, pages 177?189, 1979.
+%% \item[7.]
+%% S.O. Krumke and H.~Noltemeier.\\
+%% {\em Graphentheoretische Konzepte und Algorithmen}.\\
+%% Leitf{\"a}den der Informatik. Vieweg + Teubner, 2009.
 
-\item[12.]
-Micha Sharir.\\
-\em{ A strong connectivity algorithm and its applications to data flow analysis}.\\
-Computers and Mathematics with Applications 7(1):67?72, 1981.
-\end{itemize}
+%% \item[8.]
+%% J.~{Misra} and D.~{Gries}.\\
+%% A constructive proof of Vizing’s theorem.\\
+%% {\em Information Processing Letters}, 41, 1992. 
 
-\end{frame}
+%% \item[9.]
+%% J.G. {Oxley}.\\
+%% {\em Matroid theory}.\\
+%% Oxford University Press, New York, USA, 1992.
+%% \end{itemize}
 
-\begin{frame}
-\frametitle{References (5)}
+%% \end{frame}
 
-\begin{itemize}
+%% \begin{frame}
+%% \frametitle{References (4)}
 
-\item[13.]
-Tarjan,~R.~E.\\  
-{\em Depth-first search and linear graph algorithms}.\\
-SIAM Journal on Computing, 1 (2): 146?160, 1972.
+%% \begin{itemize}
 
-\item[14.]
-Bichot, Charles-Edmond and Siarry, Patrick.\\
-{\em Graph Partitioning: Optimisation and Applications}.\\
-John Wiley \& Sons, 24 Jan 2013.
-\vfill\clearpage
-\end{itemize}
+%% \item[10.]
+%% M.~Fiedler.\\
+%% {\em Algebraic connectivity of Graphs}.\\
+%%  Czechoslovak Mathematical Journal 23(98) (1973), 298?305.
 
-\end{frame}
+%% \item[11.]
+%% R.~Lipton, and R.~Tarjan.\\
+%% {\em A separator theorem for planar graphs}.\\
+%% Siam J. Appl. Math., Vol. 36, No. 2, pages 177?189, 1979.
+
+%% \item[12.]
+%% Micha Sharir.\\
+%% \em{ A strong connectivity algorithm and its applications to data flow analysis}.\\
+%% Computers and Mathematics with Applications 7(1):67?72, 1981.
+%% \end{itemize}
+
+%% \end{frame}
+
+%% \begin{frame}
+%% \frametitle{References (5)}
+
+%% \begin{itemize}
+
+%% \item[13.]
+%% Tarjan,~R.~E.\\  
+%% {\em Depth-first search and linear graph algorithms}.\\
+%% SIAM Journal on Computing, 1 (2): 146?160, 1972.
+
+%% \item[14.]
+%% Bichot, Charles-Edmond and Siarry, Patrick.\\
+%% {\em Graph Partitioning: Optimisation and Applications}.\\
+%% John Wiley \& Sons, 24 Jan 2013.
+%% \vfill\clearpage
+%% \end{itemize}
+
+%% \end{frame}
 
 
 
