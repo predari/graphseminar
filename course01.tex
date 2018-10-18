@@ -166,7 +166,9 @@
   \item Dr Maria Predari (\url{Maria.Predari@informatik.hu-berlin.de})
   \item Eugenio Angriman (\url{Eugenio.Angriman@informatik.hu-berlin.de})
 \end{itemize}
-  Communication through moodle \url{https://moodle.hu-berlin.de} (Angewandte Graphenalgorithmen)
+  Communication through moodle \url{https://moodle.hu-berlin.de} (Angewandte Graphenalgorithmen)\\
+  
+  {\bf enrolment key}: appliedgraphalgorithms
 
   \begin{block}{Evaluation}
   $Grade_{final} = 0.4 \times Grade_{present} + 0.3 \times Grade_{report} + 0.3 \times Grade_{project}$
@@ -427,7 +429,7 @@ find a tree of minimum edge weight that contains a certain vertex subset (termin
 \begin{frame}
 \frametitle{Minimum Cuts by Karger and Stein}
 \begin{block}{}
-  find a partition of the vertices of a graph with the minimum number of edges whose endpoints are in different parts
+  find a vertex partition of a graph into two parts with the minimum number of edges among them
 \end{block}
   %\begin{center}
 %~~~~~~~~graph~~~~~~~~~~~~~~~~~~~~~~~~~~~~\textcolor{blue}{contraction}~~~~~~~~~~~~~~~~~~~~~~~~\textcolor{red}{min cut}~\\
@@ -456,7 +458,7 @@ find a tree of minimum edge weight that contains a certain vertex subset (termin
 \begin{frame}
   \frametitle{Spectral Partitioning}
   \begin{block}{}
-   find a balanced partition of the vertices in a graph such that the number of edges with endpoints in different parts is minimized
+ find a vertex partition of a graph into two parts of equal size such that the number of edges among them is minimized
     \end{block}
 \begin{center}
 \includegraphics[height=0.3\textwidth]{laplacian-2}\qquad \qquad
@@ -478,7 +480,9 @@ find a tree of minimum edge weight that contains a certain vertex subset (termin
 \begin{frame}
 \frametitle{Tree Decomposition}
 \begin{block}{}
-  find a decomposition of the graph that represents the vertices of a given graph G as subtrees of a tree
+  find a mapping of a graph into a tree that can be used to speed up solving certain computational problems on the graph
+  %find a decomposition of the vertices of a graph into subtrees of a tree
+  %such that vertices are adjacent in the graph only when the corresponding subtrees intersect
 \end{block}
 \begin{center}
 %\includegraphics[height=0.25\textwidth]{figures/treeDecomp}
@@ -489,9 +493,7 @@ find a tree of minimum edge weight that contains a certain vertex subset (termin
 
 \begin{itemize}
 \item definition and examples~\cite{krumke09}
-\medskip
 \item properties of tree decompositions (cliques, minors)~\cite{krumke09}
-\medskip
 \item calculating tree decompositions of (chordal) graphs~\cite{krumke09}
 \end{itemize}
 
